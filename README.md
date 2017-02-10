@@ -22,8 +22,20 @@ The container is configured via a set of environment variables:
 - CRON_SCHEDULE: Check out [crontab.guru](https://crontab.guru/) for some examples:
 - BACKUP_NAME: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
 
+All environment variables prefixed with 'AWS_' are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
+
 ### Directly via Docker
-[not documented yet]
+```
+docker run \
+  -e AWS_ACCESS_KEY_ID=SOME8AWS3ACCESS9KEY \
+  -e AWS_SECRET_ACCESS_KEY=sUp3rS3cr3tK3y0fgr34ts3cr3cy \
+  -e S3_BUCKET_URL=s3://name-of-your-bucket/ \
+  -e AWS_DEFAULT_REGION=your-aws-region \
+  -e CRON_SCHEDULE="* * * * *" \
+  -e BACKUP_NAME=make-something-up \
+  -v /your/awesome/data:/data:ro \
+  peterrus/s3-cron-backup
+```
 
 ### Docker-compose
 ```
