@@ -1,5 +1,8 @@
 # Docker S3 Cron Backup
 
+[Docker Hub](https://hub.docker.com/r/peterrus/s3-cron-backup/) |
+[Github](https://github.com/peterrus/docker-s3-cron-backup)
+
 ## What is it?
 A modest little container image that periodically backups any volume mounted to /data to Amazon S3 in the form of a timestamped, gzipped, tarball
 
@@ -13,7 +16,7 @@ I invite you to check out the source of this image, it's rather simple and shoul
 ## Now, how do I use it?
 The container is configured via a set of environment variables:
 - AWS_ACCESS_KEY: Get this from amazon IAM
-- AWS_SECRET_ACCESS_KEY: Get this from amazon IAM, **you should keep this secret**
+- AWS_SECRET_ACCESS_KEY: Get this from amazon IAM, **you should keep this a secret**
 - S3_BUCKET_URL: in most cases this should be s3://name-of-your-bucket/
 - AWS_DEFAULT_REGION: The AWS region your bucket resides in
 - CRON_SCHEDULE: Check out [crontab.guru](https://crontab.guru/) for some examples:
