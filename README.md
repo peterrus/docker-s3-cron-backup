@@ -31,7 +31,7 @@ docker run \
   -e AWS_SECRET_ACCESS_KEY=sUp3rS3cr3tK3y0fgr34ts3cr3cy \
   -e S3_BUCKET_URL=s3://name-of-your-bucket/ \
   -e AWS_DEFAULT_REGION=your-aws-region \
-  -e CRON_SCHEDULE="* 0 * * *" \
+  -e CRON_SCHEDULE="0 * * * *" \
   -e BACKUP_NAME=make-something-up \
   -v /your/awesome/data:/data:ro \
   peterrus/s3-cron-backup
@@ -50,7 +50,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=sUp3rS3cr3tK3y0fgr34ts3cr3cy
       - S3_BUCKET_URL=s3://name-of-your-bucket/
       - AWS_DEFAULT_REGION=your-aws-region
-      - CRON_SCHEDULE=* 0 * * * # run every hour
+      - CRON_SCHEDULE=0 * * * * # run every hour
       - BACKUP_NAME=make-something-up
     volumes:
       - /your/awesome/data:/data:ro #use ro to make sure the volume gets mounted read-only
