@@ -31,7 +31,7 @@ docker run \
   -e AWS_SECRET_ACCESS_KEY=sUp3rS3cr3tK3y0fgr34ts3cr3cy \
   -e S3_BUCKET_URL=s3://name-of-your-bucket/ \
   -e AWS_DEFAULT_REGION=your-aws-region \
-  -e CRON_SCHEDULE="* * * * *" \
+  -e CRON_SCHEDULE="* 0 * * *" \
   -e BACKUP_NAME=make-something-up \
   -v /your/awesome/data:/data:ro \
   peterrus/s3-cron-backup
