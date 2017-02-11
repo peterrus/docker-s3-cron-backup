@@ -1,7 +1,7 @@
 # Docker S3 Cron Backup
 
-[Docker Hub](https://hub.docker.com/r/peterrus/s3-cron-backup/) |
-[Github](https://github.com/peterrus/docker-s3-cron-backup)
+[:star: Docker Hub](https://hub.docker.com/r/peterrus/s3-cron-backup/)
+[:star: Github](https://github.com/peterrus/docker-s3-cron-backup)
 
 ## What is it?
 A modest little container image that periodically backups any volume mounted to /data to Amazon S3 in the form of a timestamped, gzipped, tarball
