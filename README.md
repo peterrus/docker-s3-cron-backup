@@ -43,8 +43,8 @@ docker run \
 version: '2'
 
 services:
-  backup-grafana:
-    build: s3-cron-backup
+  my-backup-unit:
+    image: peterrus/s3-cron-backup
     environment:
       - AWS_ACCESS_KEY_ID=SOME8AWS3ACCESS9KEY
       - AWS_SECRET_ACCESS_KEY=sUp3rS3cr3tK3y0fgr34ts3cr3cy
