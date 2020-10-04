@@ -59,3 +59,7 @@ services:
       - /your/awesome/data:/data:ro #use ro to make sure the volume gets mounted read-only
     restart: always
 ```
+
+# Contributors
+- [jayesh100](https://github.com/jayesh100)
+- [ifolarin](https://github.com/ifolarin)
