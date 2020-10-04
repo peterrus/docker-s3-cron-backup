@@ -21,6 +21,7 @@ The container is configured via a set of environment variables:
 - AWS_DEFAULT_REGION: The AWS region your bucket resides in
 - CRON_SCHEDULE: Check out [crontab.guru](https://crontab.guru/) for some examples:
 - BACKUP_NAME: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
+- S3_STORAGE_CLASS: (Optional, defaults to 'STANDARD') S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
 
 All environment variables prefixed with 'AWS_' are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
 
@@ -33,6 +34,7 @@ docker run \
   -e AWS_DEFAULT_REGION=your-aws-region \
   -e CRON_SCHEDULE="0 * * * *" \
   -e BACKUP_NAME=make-something-up \
+  -e S3_STORAGE_CLASS=GLACIER \
   -v /your/awesome/data:/data:ro \
   peterrus/s3-cron-backup
 ```
@@ -52,6 +54,7 @@ services:
       - AWS_DEFAULT_REGION=your-aws-region
       - CRON_SCHEDULE=0 * * * * # run every hour
       - BACKUP_NAME=make-something-up
+      - S3_STORAGE_CLASS=GLACIER
     volumes:
       - /your/awesome/data:/data:ro #use ro to make sure the volume gets mounted read-only
     restart: always
