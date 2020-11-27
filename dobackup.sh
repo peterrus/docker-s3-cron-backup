@@ -9,10 +9,10 @@ FILE_NAME=/tmp/$BACKUP_NAME-`date "+%Y-%m-%d_%H-%M-%S"`.tar.gz
 # Check if TARGET variable is set
 if [[ -z ${TARGET} ]];
 then
-    echo "variable TARGET is not set we use default value"
+    echo "TARGET env var is not set so we use the default value (/data)"
     TARGET=/data
 else
-    echo "variable TARGET is set"
+    echo "TARGET env var is set"
 fi
 
 echo "creating archive"
