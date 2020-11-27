@@ -22,6 +22,7 @@ The container is configured via a set of environment variables:
 - CRON_SCHEDULE: Check out [crontab.guru](https://crontab.guru/) for some examples:
 - BACKUP_NAME: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
 - S3_STORAGE_CLASS: (Optional, defaults to 'STANDARD') S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
+- TARGET: (Optional, defaults to '/data') Specifies the target location to backup. Useful for sidecar containers and to filter files. Examples with multiple targets: TARGET="/var/log/*.log /var/lib/mysql/*.dmp"
 
 All environment variables prefixed with 'AWS_' are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
 
@@ -63,3 +64,4 @@ services:
 # Contributors
 - [jayesh100](https://github.com/jayesh100)
 - [ifolarin](https://github.com/ifolarin)
+- [stex79](https://github.com/stex79)
