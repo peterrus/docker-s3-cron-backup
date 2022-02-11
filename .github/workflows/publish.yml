@@ -16,9 +16,6 @@ jobs:
           # list of Docker images to use as base name for tags
           images: |
             peterrus/s3-cron-backup
-          # generate Docker tags based on the following events/attributes
-          tags: |
-            type=semver,pattern={{tag}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -38,3 +35,4 @@ jobs:
           push: true
           context: .
           tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
