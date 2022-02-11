@@ -35,7 +35,6 @@ docker run \
   -e AWS_DEFAULT_REGION=your-aws-region \
   -e CRON_SCHEDULE="0 * * * *" \
   -e BACKUP_NAME=make-something-up \
-  -e S3_STORAGE_CLASS=GLACIER \
   -v /your/awesome/data:/data:ro \
   peterrus/s3-cron-backup
 ```
@@ -55,10 +54,26 @@ services:
       - AWS_DEFAULT_REGION=your-aws-region
       - CRON_SCHEDULE=0 * * * * # run every hour
       - BACKUP_NAME=make-something-up
-      - S3_STORAGE_CLASS=GLACIER
     volumes:
       - /your/awesome/data:/data:ro #use ro to make sure the volume gets mounted read-only
     restart: always
+```
+
+### S3 Bucket Policy Example
+From a security perspective it is often preferable to create a dedicated IAM user that only has access to the specific bucket it needs for placing the archive in. The following IAM policy can then be attached to that user to give the minimum amount of required access.
+
+```
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+            ],
+            "Resource": "arn:aws:s3:::docker-s3-cron-backup-test/*"
+        }
+    ]
+}
 ```
 
 # Contributors
