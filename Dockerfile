@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.15
 
 COPY entrypoint.sh /
 COPY dobackup.sh /
@@ -6,10 +6,9 @@ COPY dobackup.sh /
 RUN \
 	mkdir -p /aws && \
 	apk -Uuv add groff less python3 py3-pip && \
-	pip3 install awscli && \
+	pip3 install awscli==1.22.54 && \
 	apk --purge -v del py-pip && \
 	rm /var/cache/apk/* && \
 	chmod +x /entrypoint.sh /dobackup.sh
-
 
 ENTRYPOINT /entrypoint.sh
