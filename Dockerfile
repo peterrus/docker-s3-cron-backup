@@ -1,7 +1,5 @@
 FROM alpine:3.15
 
-COPY entrypoint.sh /
-COPY dobackup.sh /
 
 RUN \
 	mkdir -p /aws && \
@@ -10,5 +8,8 @@ RUN \
 	apk --purge -v del py-pip && \
 	rm /var/cache/apk/* && \
 	chmod +x /entrypoint.sh /dobackup.sh
+
+COPY entrypoint.sh /
+COPY dobackup.sh /
 
 ENTRYPOINT /entrypoint.sh
