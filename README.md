@@ -27,6 +27,9 @@ The container is configured via a set of environment variables:
 
 All environment variables prefixed with 'AWS_' are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
 
+
+Add optional HEALTHCKECKS_IO_CHECK_ID variable to notify [healthchecks.io](http://healthchecks.io) about the successful backup.
+
 ### Directly via Docker
 ```
 docker run \
