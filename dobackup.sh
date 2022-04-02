@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 # default storage class to standard if not provided
 S3_STORAGE_CLASS=${S3_STORAGE_CLASS:-STANDARD}
@@ -28,3 +28,8 @@ aws s3 $AWS_ARGS cp --storage-class $S3_STORAGE_CLASS $FILE_NAME $S3_BUCKET_URL
 echo "removing local archive"
 rm $FILE_NAME
 echo "done"
+
+if [ -n $HEALTHCHECKS_IO_CHECK_ID ]; then
+    echo "Notifying healthchecks.io"
+    curl -m 10 --retry 5 https://hc-ping.com/$HEALTHCHECKS_IO_CHECK_ID
+fi
