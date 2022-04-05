@@ -4,7 +4,7 @@
 [:star: Github](https://github.com/peterrus/docker-s3-cron-backup)
 
 ## What is it?
-A modest little container image that periodically backups any volume mounted to /data to S3-compatible storage in the form of a timestamped, gzipped, tarball
+A modest little container image that periodically backups any volume mounted to /data to S3-compatible storage in the form of a timestamped, gzipped, tarball. By default this container is configured to work with Amazon S3 but it should work with most S3-backends.
 
 ## Great, but how does it work?
 An Alpine Linux instance runs nothing more than crond with a crontab that contains nothing more than one single entry that triggers the backup script. When this script is run, the volume mounted at /data gets tarred, gzipped and uploaded to a S3 bucket. Afterwards the archive gets deleted from the container. The mounted volume, of course, will be left untouched.
