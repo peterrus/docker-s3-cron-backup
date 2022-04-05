@@ -18,13 +18,17 @@ The container is configured via a set of environment variables:
 - AWS_ACCESS_KEY: Get this from amazon IAM
 - AWS_SECRET_ACCESS_KEY: Get this from amazon IAM, **you should keep this a secret**
 - S3_BUCKET_URL: in most cases this should be s3://name-of-your-bucket/
+- S3_ENDPOINT_URL: (Optional, defaults to whatever AWS provides) configurable S3 endpoint URL for non-Amazon services (e.g. Wasabi or Minio)
 - AWS_DEFAULT_REGION: The AWS region your bucket resides in
 - CRON_SCHEDULE: Check out [crontab.guru](https://crontab.guru/) for some examples:
 - BACKUP_NAME: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
 - S3_STORAGE_CLASS: (Optional, defaults to 'STANDARD') S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
 - TARGET: (Optional, defaults to '/data') Specifies the target location to backup. Useful for sidecar containers and to filter files. Examples with multiple targets: TARGET="/var/log/*.log /var/lib/mysql/*.dmp"
+- WEBHOOK_URL: (Optional) URL to ping after successful backup, e.g. [StatusCake push
+  monitoring](https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/) or [healthchecks.io](https://healthchecks.io)
 
 All environment variables prefixed with 'AWS_' are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
+
 
 ### Directly via Docker
 ```
@@ -80,3 +84,4 @@ From a security perspective it is often preferable to create a dedicated IAM use
 - [jayesh100](https://github.com/jayesh100)
 - [ifolarin](https://github.com/ifolarin)
 - [stex79](https://github.com/stex79)
+- [f213](https://github.com/f213)
