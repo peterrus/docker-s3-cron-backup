@@ -29,7 +29,7 @@ echo "removing local archive"
 rm $FILE_NAME
 echo "done"
 
-if [ -n $WEBHOOK_URL ]; then
+if [ -n "$WEBHOOK_URL" ]; then
     echo "notifying ${WEBHOOK_URL}"
     curl -m 10 --retry 5 $WEBHOOK_URL
 fi
