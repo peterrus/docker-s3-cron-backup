@@ -29,7 +29,7 @@ echo "removing local archive"
 rm $FILE_NAME
 echo "done"
 
-if [ -n $HEALTHCHECKS_IO_CHECK_ID ]; then
-    echo "Notifying healthchecks.io"
-    curl -m 10 --retry 5 https://hc-ping.com/$HEALTHCHECKS_IO_CHECK_ID
+if [ -n $WEBHOOK_URL ]; then
+    echo "notifying ${WEBHOOK_URL}"
+    curl -m 10 --retry 5 $WEBHOOK_URL
 fi
