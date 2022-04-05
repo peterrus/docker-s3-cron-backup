@@ -24,11 +24,11 @@ The container is configured via a set of environment variables:
 - BACKUP_NAME: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
 - S3_STORAGE_CLASS: (Optional, defaults to 'STANDARD') S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
 - TARGET: (Optional, defaults to '/data') Specifies the target location to backup. Useful for sidecar containers and to filter files. Examples with multiple targets: TARGET="/var/log/*.log /var/lib/mysql/*.dmp"
+- WEBHOOK_URL: (Optional) URL to ping after successful backup, e.g. [StatusCake push
+  monitoring](https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/) or [healthchecks.io](https://healthchecks.io)
 
 All environment variables prefixed with 'AWS_' are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
 
-
-Add optional HEALTHCKECKS_IO_CHECK_ID variable to notify [healthchecks.io](http://healthchecks.io) about the successful backup.
 
 ### Directly via Docker
 ```
