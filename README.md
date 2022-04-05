@@ -18,7 +18,7 @@ The container is configured via a set of environment variables:
 - AWS_ACCESS_KEY: Get this from amazon IAM
 - AWS_SECRET_ACCESS_KEY: Get this from amazon IAM, **you should keep this a secret**
 - S3_BUCKET_URL: in most cases this should be s3://name-of-your-bucket/
-- S3_ENDPOINT_URL: confiruable S3 endpoint url for non-amazon services
+- S3_ENDPOINT_URL: (Optional, defaults to whatever AWS provides) configurable S3 endpoint URL for non-Amazon services (e.g. Wasabi or Minio)
 - AWS_DEFAULT_REGION: The AWS region your bucket resides in
 - CRON_SCHEDULE: Check out [crontab.guru](https://crontab.guru/) for some examples:
 - BACKUP_NAME: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
