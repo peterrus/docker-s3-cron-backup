@@ -69,6 +69,7 @@ services:
 From a security perspective it is often preferable to create a dedicated IAM user that only has access to the specific bucket it needs for placing the archive in. The following IAM policy can then be attached to that user to give the minimum amount of required access.
 
 ```
+{
     "Version": "2012-10-17",
     "Statement": [
         {
