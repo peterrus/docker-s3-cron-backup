@@ -4,10 +4,10 @@
 [:star: Github](https://github.com/peterrus/docker-s3-cron-backup)
 
 ## What is it?
-A modest little container image that periodically backups any volume mounted to /data to S3-compatible storage in the form of a timestamped, gzipped, tarball. By default this container is configured to work with Amazon S3 but it should work with most S3-backends.
+A modest little container image that periodically backups any volume mounted to `/data` to S3-compatible storage in the form of a timestamped, gzipped, tarball. By default this container is configured to work with Amazon S3 but it should work with most S3-backends.
 
 ## Great, but how does it work?
-An Alpine Linux instance runs nothing more than crond with a crontab that contains nothing more than one single entry that triggers the backup script. When this script is run, the volume mounted at /data gets tarred, gzipped and uploaded to a S3 bucket. Afterwards the archive gets deleted from the container. The mounted volume, of course, will be left untouched.
+An Alpine Linux instance runs nothing more than crond with a crontab that contains nothing more than one single entry that triggers the backup script. When this script is run, the volume mounted at `/data` gets tarred, gzipped and uploaded to a S3 bucket. Afterwards the archive gets deleted from the container. The mounted volume, of course, will be left untouched.
 
 I invite you to check out the source of this image, it's rather simple and should be easy to understand. If this isn't the case, feel free to open an issue on [github](https://github.com/peterrus/docker-s3-cron-backup)
 
@@ -15,21 +15,21 @@ I invite you to check out the source of this image, it's rather simple and shoul
 
 ## Now, how do I use it?
 The container is configured via a set of required environment variables:
-- AWS_ACCESS_KEY: Get this from amazon IAM
-- AWS_SECRET_ACCESS_KEY: Get this from amazon IAM, **you should keep this a secret**
-- S3_BUCKET_URL: in most cases this should be s3://name-of-your-bucket/
-- AWS_DEFAULT_REGION: The AWS region your bucket resides in
-- CRON_SCHEDULE: Check out [crontab.guru](https://crontab.guru/) for some examples:
-- BACKUP_NAME: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
+- `AWS_ACCESS_KEY`: Get this from Amazon IAM
+- `AWS_SECRET_ACCESS_KEY`: Get this from Amazon IAM, **you should keep this a secret**
+- `S3_BUCKET_URL`: in most cases this should be `s3://name-of-your-bucket/`
+- `AWS_DEFAULT_REGION`: The AWS region your bucket resides in
+- `CRON_SCHEDULE`: Check out [crontab.guru](https://crontab.guru/) for some examples:
+- `BACKUP_NAME`: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
 
 And the following optional environment variables:
-- S3_ENDPOINT_URL: (Optional, defaults to whatever AWS provides) configurable S3 endpoint URL for non-Amazon services (e.g. Wasabi or Minio)
-- S3_STORAGE_CLASS: (Optional, defaults to 'STANDARD') S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
-- TARGET: (Optional, defaults to '/data') Specifies the target location to backup. Useful for sidecar containers and to filter files. Examples with multiple targets: TARGET="/var/log/*.log /var/lib/mysql/*.dmp"
-- WEBHOOK_URL: (Optional) URL to ping after successful backup, e.g. [StatusCake push
-  monitoring](https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/) or [healthchecks.io](https://healthchecks.io)
+- `S3_ENDPOINT_URL`: (Optional, defaults to whatever AWS provides) configurable S3 endpoint URL for non-Amazon services (e.g. [Wasabi](https://wasabi.com/) or [Minio](https://min.io/))
+- `S3_STORAGE_CLASS`: (Optional, defaults to `STANDARD`) S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
+- `TARGET`: (Optional, defaults to `/data`) Specifies the target location to backup. Useful for sidecar containers and to filter files.
+  - Example with multiple targets: `TARGET="/var/log/*.log /var/lib/mysql/*.dmp"`
+- `WEBHOOK_URL`: (Optional) URL to ping after successful backup, e.g. [StatusCake push monitoring](https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/) or [healthchecks.io](https://healthchecks.io)
 
-All environment variables prefixed with 'AWS_' are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
+All environment variables prefixed with `AWS_` are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
 
 
 ### Directly via Docker
