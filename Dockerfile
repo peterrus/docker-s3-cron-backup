@@ -13,4 +13,5 @@ COPY dobackup.sh /
 
 RUN chmod +x /entrypoint.sh /dobackup.sh
 
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD [ "crond", "-f" ]
