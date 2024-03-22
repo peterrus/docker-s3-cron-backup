@@ -23,7 +23,7 @@ The container is configured via a set of required environment variables:
 - `BACKUP_NAME`: A name to identify your backup among the other files in your bucket, it will be postfixed with the current timestamp (date and time)
 
 And the following optional environment variables:
-- `S3_ENDPOINT_URL`: (Optional, defaults to whatever AWS provides) configurable S3 endpoint URL for non-Amazon services (e.g. [Wasabi](https://wasabi.com/) or [Minio](https://min.io/))
+- `S3_ENDPOINT`: (Optional, defaults to whatever aws-cli provides) configurable S3 endpoint URL for non-Amazon services (e.g. [Wasabi](https://wasabi.com/) or [Minio](https://min.io/))
 - `S3_STORAGE_CLASS`: (Optional, defaults to `STANDARD`) S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
 - `TARGET`: (Optional, defaults to `/data`) Specifies the target location to backup. Useful for sidecar containers and to filter files.
   - Example with multiple targets: `TARGET="/var/log/*.log /var/lib/mysql/*.dmp"` (Arguments will be passed to `tar`).
