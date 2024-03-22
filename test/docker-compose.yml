@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  s3-cron-backup-test:
+    build: ../
+    environment:
+      - AWS_DEFAULT_REGION=eu-central-1
+      - CRON_SCHEDULE=* * * * *
+      - BACKUP_NAME=docker-s3-backup-test
+    env_file: 
+    - .env
+    volumes:
+      - ./testdata/:/data:ro
+    restart: no
