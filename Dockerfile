@@ -11,4 +11,4 @@ RUN chmod +x /entrypoint.sh /dobackup.sh
 RUN adduser -D backup
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD [ "crond", "-f" ]
+CMD [ "crond", "-f", "-d", "8" ]
