@@ -81,7 +81,11 @@ From a security perspective it is often preferable to create a dedicated IAM use
 }
 ```
 
-# Contributors
+## It doesn't do X or Y!
+
+Let this container serve as a starting point and an inspiration! Feel free to modify it and even open a PR if you feel others can benefit from these changes.
+
+## Contributors
 - [jayesh100](https://github.com/jayesh100)
 - [ifolarin](https://github.com/ifolarin)
 - [stex79](https://github.com/stex79)
