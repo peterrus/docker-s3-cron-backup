@@ -26,7 +26,7 @@ And the following optional environment variables:
 - `S3_ENDPOINT_URL`: (Optional, defaults to whatever AWS provides) configurable S3 endpoint URL for non-Amazon services (e.g. [Wasabi](https://wasabi.com/) or [Minio](https://min.io/))
 - `S3_STORAGE_CLASS`: (Optional, defaults to `STANDARD`) S3 storage class, see [aws cli documentation](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) for options
 - `TARGET`: (Optional, defaults to `/data`) Specifies the target location to backup. Useful for sidecar containers and to filter files.
-  - Example with multiple targets: `TARGET="/var/log/*.log /var/lib/mysql/*.dmp"`
+  - Example with multiple targets: `TARGET="/var/log/*.log /var/lib/mysql/*.dmp"` (Arguments will be passed to `tar`).
 - `WEBHOOK_URL`: (Optional) URL to ping after successful backup, e.g. [StatusCake push monitoring](https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/) or [healthchecks.io](https://healthchecks.io)
 
 
