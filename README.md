@@ -15,7 +15,7 @@ I invite you to check out the source of this image, it's rather simple and shoul
 
 ## Now, how do I use it?
 The container is configured via a set of required environment variables:
-- `AWS_ACCESS_KEY`: Get this from Amazon IAM
+- `AWS_ACCESS_KEY_ID`: Get this from Amazon IAM
 - `AWS_SECRET_ACCESS_KEY`: Get this from Amazon IAM, **you should keep this a secret**
 - `S3_BUCKET_URL`: in most cases this should be `s3://name-of-your-bucket/`
 - `AWS_DEFAULT_REGION`: The AWS region your bucket resides in
