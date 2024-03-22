@@ -2,6 +2,8 @@
 
 set -e
 
+source .env
+
 # default storage class to standard if not provided
 S3_STORAGE_CLASS=${S3_STORAGE_CLASS:-STANDARD}
 
