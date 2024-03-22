@@ -29,8 +29,6 @@ And the following optional environment variables:
   - Example with multiple targets: `TARGET="/var/log/*.log /var/lib/mysql/*.dmp"`
 - `WEBHOOK_URL`: (Optional) URL to ping after successful backup, e.g. [StatusCake push monitoring](https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/) or [healthchecks.io](https://healthchecks.io)
 
-All environment variables prefixed with `AWS_` are directly used by [awscli](https://aws.amazon.com/cli/) that this image heavily relies on.
-
 
 ### Directly via Docker
 ```
