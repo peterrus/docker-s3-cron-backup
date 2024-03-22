@@ -48,7 +48,7 @@ docker run \
 ### Docker-compose
 ```
 # docker-compose.yml
-version: '2'
+version: '3.8'
 
 services:
   my-backup-unit:
