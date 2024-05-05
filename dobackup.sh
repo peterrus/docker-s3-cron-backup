@@ -8,7 +8,12 @@ source .env
 S3_STORAGE_CLASS=${S3_STORAGE_CLASS:-STANDARD}
 
 # generate file name for tar
-FILE_NAME=/tmp/${BACKUP_NAME}-$(date "+%Y-%m-%d_%H-%M-%S").tar.gz
+if [ "$BACKUP_NAME_TIMESTAMP" = false ]; then
+  echo "BACKUP_NAME_TIMESTAMP is disabled"
+  FILE_NAME=/tmp/${BACKUP_NAME}.tar.gz
+else
+  FILE_NAME=/tmp/${BACKUP_NAME}-$(date "+%Y-%m-%d_%H-%M-%S").tar.gz
+fi
 
 # Check if TARGET variable is set
 if [ -z "${TARGET}" ]; then
