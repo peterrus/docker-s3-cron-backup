@@ -21,7 +21,7 @@ The container is configured via a set of required environment variables:
 - `AWS_DEFAULT_REGION`: The AWS region your bucket resides in
 - `CRON_SCHEDULE`: Check out [crontab.guru](https://crontab.guru/) for some examples:
 - `BACKUP_NAME`: A name to identify your backup among the other files in your bucket 
-- `BACKUP_NAME_TIMESTAMP`: It will postfixed `BACKUP_NAME` with the current timestamp (date and time) (Optional, defaults to true)
+- `BACKUP_NAME_TIMESTAMP`: `BACKUP_NAME` will be postfixed with the current timestamp (date and time) (Optional, defaults to true)
 
 And the following optional environment variables:
 - `S3_ENDPOINT`: (Optional, defaults to whatever aws-cli provides) configurable S3 endpoint URL for non-Amazon services (e.g. [Wasabi](https://wasabi.com/) or [Minio](https://min.io/))
