@@ -81,6 +81,14 @@ From a security perspective it is often preferable to create a dedicated IAM use
 }
 ```
 
+### Trigger backup manually
+
+Run the following command to trigger a backup manually on a running container:
+
+```
+docker exec -u backup -it ${CONTAINER_ID} sh dobackup.sh
+```
+
 ## It doesn't do X or Y!
 
 Let this container serve as a starting point and an inspiration! Feel free to modify it and even open a PR if you feel others can benefit from these changes.
