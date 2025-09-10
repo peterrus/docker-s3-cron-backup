@@ -4,6 +4,9 @@
 [:star: Github](https://github.com/peterrus/docker-s3-cron-backup)
 
 ## What is it?
+
+> ℹ️ I am currently not actively maintaining this container. Feel free to fork it, modify it locally or use it as inspiration.
+
 A modest little container image that periodically backups any volume mounted to `/data` to S3-compatible storage in the form of a timestamped, gzipped, tarball. By default this container is configured to work with Amazon S3 but it should work with most S3-backends.
 
 ## Great, but how does it work?
@@ -83,7 +86,7 @@ From a security perspective it is often preferable to create a dedicated IAM use
 
 ## It doesn't do X or Y!
 
-Let this container serve as a starting point and an inspiration! Feel free to modify it and even open a PR if you feel others can benefit from these changes.
+Let this container serve as a starting point and an inspiration! Feel free to modify it locally or fork it you want to share your changes with others.
 
 ## Contributors
 - [jayesh100](https://github.com/jayesh100)
